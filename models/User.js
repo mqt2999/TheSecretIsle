@@ -39,7 +39,3 @@ const User = mongoose.model("User", UserSchema);
 
 module.exports = User;
 
-module.exports = {
-    User: require("./User"),
-    Prompt: require("./Prompt")
-  };
