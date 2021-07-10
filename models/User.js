@@ -5,16 +5,32 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
     _id:{
         type:String,
-        unique: true
+        unique: true,
+        allowNull:false
     },
     Name:{
-        type:String
+        type:String,
+        allowNull:false
+
+    },
+    userName:{
+        type:String,
+        unique:true,
+        allowNull:false
+    },
+    password:{
+        type:String,
+        unique:true,
+        allowNull:false
     },
     lastQuestion:{
-        type:Number
+        type:Number,
+        allowNull:false
     },
+
     Score:{
-        type:Number
+        type:Number,
+        allowNull:false
     }
 
 })
