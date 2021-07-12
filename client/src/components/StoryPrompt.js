@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { useStory } from './StoryContext';
 
 export default function StoryPrompt() {
-    const [content, setContent] = useState("you walk into a bar");
+    const story = useStory();
 
+    console.log(story);
     
 
     //get answers from database and display buttons for both
@@ -10,7 +12,7 @@ export default function StoryPrompt() {
 
     return (
         <div>
-            {content}
+            {story.prompt}
         </div>
     )
 }

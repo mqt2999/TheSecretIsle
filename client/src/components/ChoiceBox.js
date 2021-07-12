@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Choice from './Choice';
+import {useStory} from './StoryContext';
 
 export default function ChoiceBox() {
-    const [content, setContent] = useState({choice1: "Go Left", choice2: "Go Right"});
+    const story = useStory();
 
     
     //get answers from database and display buttons for both
@@ -10,8 +11,8 @@ export default function ChoiceBox() {
 
     return (
         <div>
-            <Choice>{content.choice1}</Choice>
-            <Choice>{content.choice2}</Choice>
+            <Choice>{story.question1.question}</Choice>
+            <Choice>{story.question2.question}</Choice>
         </div>
     )
 }
