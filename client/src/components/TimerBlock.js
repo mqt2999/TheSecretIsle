@@ -7,6 +7,7 @@ export default function ButtonBox() {
 
     return (
         <div style = {{backgroundcolor: "blue"}}>
+            Block
             {content}
         </div>
     )
