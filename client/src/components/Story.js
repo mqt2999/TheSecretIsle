@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { StoryProvider } from './StoryContext';
 import StoryPrompt from './StoryPrompt';
 import ChoiceBox from './ChoiceBox';
+import { CharacterProvider } from './CharacterContext';
 
 export default function Story() {
     const [content, setContent] = useState();
@@ -12,8 +13,10 @@ export default function Story() {
     return (
         <div>
             <StoryProvider>
-            <StoryPrompt/>
-            <ChoiceBox/>
+                <CharacterProvider>
+                    <StoryPrompt />
+                    <ChoiceBox />
+                </CharacterProvider>
             </StoryProvider>
         </div>
     )
