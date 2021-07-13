@@ -1,11 +1,12 @@
-
+import React from 'react';
+// import logo from './logo.svg';
 import './App.css';
+import Story from './components/Story.js';
+
 
 function App() {
   return (
-    <div>
-      <h1> Hello there </h1>
-    </div>
+    <Story/>
   );
 }
 
