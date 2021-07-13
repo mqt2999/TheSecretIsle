@@ -14,6 +14,9 @@ export function useCharacter() {
 export function CharacterProvider({children}) {
     const [characterContext, setCharacterContext] = useState(fakePlayer);
 
+    //TODO: finish the update Character method
+    // const updateCharacter = () => 
+
     return (
         <CharacterContext.Provider value={characterContext}>
             {children}

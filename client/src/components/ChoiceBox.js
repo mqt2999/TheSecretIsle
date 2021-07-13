@@ -11,8 +11,8 @@ export default function ChoiceBox() {
 
     return (
         <div>
-            <Choice>{story.question1.question}</Choice>
-            <Choice>{story.question2.question}</Choice>
+            <Choice mod={story.question1.modifier}>{story.question1.question}</Choice>
+            <Choice mod={story.question2.modifier}>{story.question2.question}</Choice>
         </div>
     )
 }
