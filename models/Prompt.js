@@ -15,7 +15,14 @@ const PromptSchema = new Schema({
     },
     answer2:{
         type:String,
+    },
+    question1:{
+        type:Number,
+    },
+    question2:{
+        type:Number,
     }
+    
 });
 
 const Prompt = mongoose.model("Prompt", PromptSchema);
