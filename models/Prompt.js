@@ -21,6 +21,9 @@ const PromptSchema = new Schema({
     },
     question2:{
         type:Number,
+    },
+    value:{
+        type:Number
     }
     
 });

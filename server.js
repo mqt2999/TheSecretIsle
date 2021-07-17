@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const PORT = process.env.PORT || 3001;
+const routes = require("./routes/index.js")
 
 const routes = require('./routes')
 
@@ -15,7 +16,7 @@ app.use(express.json());
 
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/sercretIsleGame"
+  process.env.MONGODB_URI || "mongodb://localhost/secretIsleGame"
 );
 
 // Start the API server
