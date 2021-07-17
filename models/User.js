@@ -3,11 +3,6 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-    _id:{
-        type:String,
-        unique: true,
-        allowNull:false
-    },
     Name:{
         type:String,
         allowNull:false
@@ -25,12 +20,14 @@ const UserSchema = new Schema({
     },
     lastQuestion:{
         type:Number,
-        allowNull:false
+        allowNull:false,
+        upsert:true
     },
 
     Score:{
         type:Number,
-        allowNull:false
+        allowNull:false,
+        upsert:true
     }
 
 })
