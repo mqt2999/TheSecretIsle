@@ -1,7 +1,15 @@
-const { db } = require("../../models/User");
+const Prompt  = require("../../models/Prompt");
 
 const router = require("express").Router();
 
 router.get('/', function (req,res){
-    res.render()
-})
+    Prompt.find({})
+    .then(data => {
+        res.json(data)
+    })
+    .catch(err => {
+        console.error(err)
+    })
+});
+
+module.exports = router;

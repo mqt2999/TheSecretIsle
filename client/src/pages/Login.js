@@ -1,9 +1,22 @@
-import React from "react";
+import React ,{useEffect, useState} from "react";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
-
+import axios from "axios"
 function Login() {
+
+  const [users, setUsers] = useState({});
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  
+useEffect ( () => {
+  axios.post(`/api/user/login`)
+  .then(res => {
+    console.log(res.data)
+  })
+  })
+
+  
     return (
         <Container>
         <Row>

@@ -5,7 +5,7 @@ const loginFormHandler = async (event) => {
     const password = document.querySelector('#password-login').value.trim();
   
     if (email && password) {
-      const response = await fetch('ROUTEHERE', { //ADD API ROUTE HERE
+      const response = await fetch("/api/user/login", { //ADD API ROUTE HERE
         method: 'POST',
         body: JSON.stringify({ email, password }),
         headers: { 'Content-Type': 'application/json' },
