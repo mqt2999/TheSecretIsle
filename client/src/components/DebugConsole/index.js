@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import {useStory} from './StoryContext';
-import {useCharacter} from './CharacterContext';
-import styles from './componentStyle/component.module.css'
+import {useStory} from '../Story/StoryContext';
+import {useCharacter} from '../Story/CharacterContext';
+import './style.css'
 
 export default function DebugConsole() {
     const character = useCharacter();
@@ -20,7 +20,7 @@ export default function DebugConsole() {
     // }
 
     return (
-        <ul className={styles.debug}>
+        <ul className="debug">
             <li>CharScore: {character.characterScore}</li>
             <li>LastQuestion: {character.lastQuestion}</li>
             <li>Prompt: {story.prompt}</li>
