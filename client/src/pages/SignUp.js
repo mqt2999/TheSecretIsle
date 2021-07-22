@@ -6,7 +6,7 @@ import Col from "../components/Col";
 
 function SignUp() {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState=("");
+  const [password, setPassword] = useState("");
 
  // put this on the submit button for the sign up
   function createUser(){

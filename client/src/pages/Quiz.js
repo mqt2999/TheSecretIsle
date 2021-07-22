@@ -3,6 +3,7 @@ import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
 import axios from "axios"
+import Story from '../components/Story';
 
 function Quiz() {
     const [questions, setQuestions]= useState({})
@@ -33,7 +34,7 @@ function Quiz() {
 
       return(
           <div> 
-              hello world
+              <Story/>
           </div>
       )
 
