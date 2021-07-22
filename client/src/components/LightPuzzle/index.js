@@ -4,6 +4,10 @@ import Tile from '../Tile';
 export default function LightPuzzle() {
     const [content, setContent] = useState();
 
+    const checkForWin = () => {
+        //if all tiles are lit or off end game with success
+    }
+
     return (
         <LightPuzzle>
             <div>

@@ -1,0 +1,13 @@
+.timer {
+    border: 2px solid #eeeeee;
+    border-radius: 7px;
+    padding: 2px 4px;
+    /* display: flex;
+    flex-direction: row; */
+}
+
+.timer-backdrop {
+    background-color: black;
+    height: 100px;
+    padding: 20px;
+}

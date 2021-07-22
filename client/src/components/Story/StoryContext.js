@@ -61,10 +61,12 @@ export function useStoryUpdater() {
 export function StoryProvider({ children }) {
     const [storyContext, setStoryContext] = useState(fakeQuestions[0]);
 
+    // fetch("/api/story")
     //TODO: rework to fetch new questions from database
     const processChoice = (event) => {
         console.log(event);
         console.log(StoryContext);
+        //fetch(/prompt/mod)
         const newCharScore = 10 + StoryContext.mod;
         if (newCharScore > StoryContext.decider) {
             setStoryContext(priorStory => fakeQuestions[priorStory.nextQuestionUp]);

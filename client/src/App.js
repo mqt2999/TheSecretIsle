@@ -7,7 +7,8 @@ import Story from './components/Story';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
-import Quiz from './pages/Quiz'
+import Quiz from './pages/Quiz';
+import Timer from './components/Timer';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route exact path="/Login" component={Login} />
           <Route exact path="/SignUp" component={SignUp} />
           <Route exact path="/Quiz" component={Quiz} />
+          <Route exact path="/Timer" component={Timer} />
       </div>
     </Router>
   );
