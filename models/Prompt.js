@@ -16,14 +16,11 @@ const PromptSchema = new Schema({
     answer2:{
         type:String,
     },
-    question1:{
+    right:{
         type:Number,
     },
-    question2:{
+    wrong:{
         type:Number,
-    },
-    value:{
-        type:Number
     }
     
 });
