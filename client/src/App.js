@@ -8,18 +8,18 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import Quiz from './pages/Quiz'
+import Main from './components/Main/Main'
 
 function App() {
   return (
     <Router>
-      <div>
-        <Navbar />
-          
-          <Route exact path="/" component={Home} />
+      <Main>
+          <Route exact path="/Home" component={Home} />
+          <Route exact path="/Story" component={Story} />
           <Route exact path="/Login" component={Login} />
           <Route exact path="/SignUp" component={SignUp} />
           <Route exact path="/Quiz" component={Quiz} />
-      </div>
+      </Main>
     </Router>
   );
 }
