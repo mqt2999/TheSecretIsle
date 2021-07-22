@@ -1,11 +1,24 @@
-import React from "react";
+import React ,{useEffect, useState} from "react";
 import Container from "../components/Container";
 import Main from "../components/Main/Main";
 import LoginForm from "../components/LoginForm/LoginForm";
 import MainTitle from "../components/MainTitle/MainTitle";
-
+import axios from "axios"
 function Login() {
-  return(
+
+  const [users, setUsers] = useState({});
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  
+useEffect ( () => {
+  axios.post(`/api/user/login`)
+  .then(res => {
+    console.log(res.data)
+  })
+  })
+
+  
+    return(
     <Container>
             <form className="login-form">
           <div className="mb-3">

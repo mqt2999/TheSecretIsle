@@ -1,6 +1,6 @@
 import React, { Children, useEffect, useState } from 'react';
-import {useStory, useStoryUpdater} from './StoryContext'
-import { useCharacter } from './CharacterContext';
+import {useStory, useStoryUpdater} from '../Story/StoryContext'
+import { useCharacter } from '../Story/CharacterContext'
 
 export default function Choice(props) {
     const processChoice = useStoryUpdater();

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import TimerBlock from './TimerBlock';
+import TimerBlock from '../TimerBlock';
 import styles from './componentStyle/component.module.css'
 
 

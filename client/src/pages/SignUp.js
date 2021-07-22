@@ -1,9 +1,27 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Container from "../components/Container";
+import axios from "axios"
 import Row from "../components/Row";
 import Col from "../components/Col";
 
 function SignUp() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState=("");
+
+ // put this on the submit button for the sign up
+  function createUser(){
+    
+    axios.get(`/api/story/`)
+    .then(res => {
+      console.log(res.data)
+    })
+    
+      
+  }
+
+  function handleSubmit () {
+
+  }
     return (
         <Container>
           <form className="signup-form">
