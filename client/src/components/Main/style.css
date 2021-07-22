@@ -1,0 +1,10 @@
+.blur {
+    filter: blur(5px);
+}
+.darken {
+    filter: brightness(50%);
+}
+
+.background {
+    background-image: "./Pirate Island.jpg";
+}
