@@ -3,8 +3,8 @@ import "./style.css";
 
 function MainTitle(props) {
   return(
-    <div id="home-title" className="d-flex flex-column justify-content-center align-items-center">
-        <h1 className="mainFont">TheSecretIsle</h1>
+    <div className="d-flex flex-column justify-content-center align-middle">
+        <h1 className="mainFont">The Secret Isle</h1>
         {props.children}
     </div>
   )

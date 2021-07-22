@@ -1,4 +1,5 @@
 import React ,{useEffect, useState} from "react";
+import Main from "../components/Main/Main";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";

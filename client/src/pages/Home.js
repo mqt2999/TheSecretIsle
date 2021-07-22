@@ -6,9 +6,7 @@ import background from "../images/Pirate Island.jpg"
 function Home() {
     return (
       <div>
-        <Main>
           <MainTitle></MainTitle>
-        </Main>
       </div>
     )
 }
