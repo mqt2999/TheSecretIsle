@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
     Name:{
         type:String,
-        allowNull:false
+        allowNull:true
 
     },
     userName:{
@@ -20,13 +20,14 @@ const UserSchema = new Schema({
     },
     lastQuestion:{
         type:Number,
-        allowNull:false,
+        allowNull:true,
+        default: 1,
         upsert:true
     },
 
     Score:{
         type:Number,
-        allowNull:false,
+        allowNull:true,
         upsert:true
     }
 
