@@ -9,13 +9,12 @@ export default function Story() {
 
     return (
         <div>
-            <StoryProvider>
-                <CharacterProvider>
-                    <DebugConsole/>
+            <CharacterProvider>
+                <StoryProvider>
                     <StoryPrompt />
                     <ChoiceBox />
-                </CharacterProvider>
-            </StoryProvider>
+                </StoryProvider>
+            </CharacterProvider>
         </div>
     )
 }

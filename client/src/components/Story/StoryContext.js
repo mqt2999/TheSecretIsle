@@ -1,4 +1,6 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
+import { useCharacter } from './CharacterContext';
+import axios from 'axios';
 
 const StoryContext = React.createContext();
 const StoryContextUpdater = React.createContext();
@@ -60,10 +62,42 @@ export function useStoryUpdater() {
 }
 
 export function StoryProvider({ children }) {
-    const [storyContext, setStoryContext] = useState(fakeQuestions[0]);
+
+    const character = useCharacter();
+
+    const [storyContext, setStoryContext] = useState({
+        storyChunk: 'Failed to get Question',
+        answer1: '...Loading Answer',
+        answer2: '...Loading Answer'
+    });
+
+    // const [storyContext, setStoryContext] = useState(async () => {
+    //     try {
+    //         const storyData = await fetch('api/story/1');
+    //         console.log(storyData.json);
+    //         return storyData;
+    //         console.log(storyContext);
+    //     } catch {
+    //         return ({
+    //             storyChunk: 'Failed to get Question',
+    //             answer1: '...Loading Answer',
+    //             answer2: '...Loading Answer'
+    //         })
+    //     }
+    // });
+
+    useEffect( () => {
+        fetch(`api/story/1`)
+        .then(res => res.json())
+        .then(data => 
+            {console.log(data)
+            setStoryContext(data[0])
+            })
+    }, [])
 
     //TODO: rework to fetch new questions from database
     const processChoice = (event) => {
+        axios.post('api/user')
         console.log(event);
         console.log(StoryContext);
         const newCharScore = 10 + StoryContext.mod;
@@ -82,3 +116,4 @@ export function StoryProvider({ children }) {
         </StoryContext.Provider>
     )
 }
+
