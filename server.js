@@ -4,12 +4,15 @@ const mongoose = require("mongoose");
 const app = express();
 const PORT = process.env.PORT || 3001;
 const routes = require("./routes/index.js")
+const path = require('path')
 
 // const routes = require('./routes')
 
-// Define middleware here
+// middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use(express.static(path.join(__dirname, 'public'))); 
 
 // Add routes, both API and view
 app.use(routes);

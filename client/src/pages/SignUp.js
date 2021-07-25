@@ -6,40 +6,49 @@ import Row from "../components/Row";
 import Col from "../components/Col";
 import Main from "../components/Main/Main";
 
-function SignUp() {
+const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
- // put this on the submit button for the sign up
-  function createUser(){
-    
-    axios.get(`/api/story/`)
-    .then(res => {
-      console.log(res.data)
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("Signing up...");
+
+    // useEffect(() => {
+      axios.post('api/user/signup', {userName: email, password: password})
+      .then (res => {
+        console.log(res)
     })
-    
-      
+    .catch(err => console.error(err))
   }
 
-  function handleSubmit () {
-
-  }
     return (
         <Container>
-            <form className="login-form">
+            <form onSubmit = {handleSubmit} className="login-form">
                 <div className="mb-4">
                     <div className="">
-                        <input type="text" className="input-field" id="email-input" placeholder="Username"/>
+                        <input type="text" 
+                        className="input-field" 
+                        id="email-input" 
+                        onChange = {e => setEmail(e.target.value)}
+                        placeholder="Username"/>
                     </div>
                 </div>
                 <div className="mb-4">
                     <div className="">
-                        <input type="password" className="input-field" id="password-input" placeholder="Password"/>
+                        <input type="password" 
+                        className="input-field" 
+                        id="password-input" 
+                        placeholder="Password"/>
                     </div>
                 </div>
                 <div className="mb-4">
                     <div className="">
-                        <input type="password" className="input-field" id="password-input" placeholder="Confirm Password"/>
+                        <input type="password" 
+                        className="input-field" 
+                        id="password-confirm"
+                        onChange = {e => setPassword(e.target.value)} 
+                        placeholder="Confirm Password"/>
                     </div>
                 </div>
                 <div className="d-grid gap-2">
