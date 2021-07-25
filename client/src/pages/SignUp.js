@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import Container from "../components/Container";
-import axios from "axios"
-// import '../components/SignupForm/style.css'
+import axios from "axios";
+import '../components/SignupForm/style.css'
 import Row from "../components/Row";
 import Col from "../components/Col";
 import Main from "../components/Main/Main";

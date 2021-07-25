@@ -1,8 +1,5 @@
 import React ,{useEffect, useState} from "react";
 import Container from "../components/Container";
-import Main from "../components/Main/Main";
-import LoginForm from "../components/LoginForm/LoginForm";
-import MainTitle from "../components/MainTitle/MainTitle";
 import axios from "axios"
 import '../components/LoginForm/style.css'
 function Login() {
@@ -16,6 +13,7 @@ useEffect ( () => {
   .then(res => {
     console.log(res.data)
   })
+  .catch(err => console.error(err))
   })
 
   

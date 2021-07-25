@@ -8,8 +8,10 @@ export default function Choice(props) {
     //TODO: change to button that on click run charScore calcs and gets new question/puzzle
 
     return (
-        <button onClick={processChoice}>
-            {props.children}
-        </button>
+        <div className="d-grid gap-2 col mx-auto">
+            <button className="btn btn-light" onClick={processChoice}>
+                {props.children}
+            </button>
+        </div>
     )
 }

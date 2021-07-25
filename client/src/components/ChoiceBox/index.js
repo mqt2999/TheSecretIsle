@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Choice from '../Choice';
 import {useStory} from '../Story/StoryContext';
+import './style.css'
 
 export default function ChoiceBox() {
     const story = useStory();
