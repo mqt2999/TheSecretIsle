@@ -2,10 +2,15 @@ nav.navbar.navbar-default {
   margin-bottom: 0;
 }
 
-.bg-light {
-  -webkit-filter: blur(20px);
-   -moz-filter: blur(20px);
-   -o-filter: blur(20px);
-   -ms-filter: blur(20px);
-   filter: blur(20px);
+.mainFont {
+  color: white;
+  font-weight: 500;
+  font-size: 300% !important;
+  font-family: 'Comfortaa';
+  text-decoration: none;
+}
+
+a:hover {
+  color: #eeeeee !important;
+  text-decoration: none;
 }

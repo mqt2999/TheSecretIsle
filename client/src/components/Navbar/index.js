@@ -4,10 +4,8 @@ import "./style.css";
 
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <Link className="navbar-brand" to="/">
-        The Secret Isle
-      </Link>
+    <nav className="">
+      <a className="mainFont" href="/">The Secret Isle</a>
     </nav>
   );
 }
