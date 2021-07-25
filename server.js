@@ -1,9 +1,11 @@
 const express = require("express");
-
 const mongoose = require("mongoose");
+const { db } = require("./models/User.js");
 const app = express();
 const PORT = process.env.PORT || 3001;
-const routes = require("./routes/index.js")
+const routes = require("./routes/index.js");
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
 
 // const routes = require('./routes')
 
@@ -24,6 +26,14 @@ mongoose.connect(
     useFindAndModify: false
   } 
 );
+
+app.use(session({
+  secret: 'my-secret',
+  resave: false,
+  saveUninitialized: true,
+  store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI || "mongodb://localhost/secretIsleGame" })
+}));
+
 
 // Start the API server
 app.listen(PORT, function() {
