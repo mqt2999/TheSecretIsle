@@ -6,16 +6,21 @@ const bcrypt = require("bcrypt");
 router.post("/login", async (req, res) => {
 
     try {
-        const userFound = await User.findOne({ "userName": req.body.username})
+        const userFound = await User.findOne({userName: req.body.username})
        
 
         if (userFound) {
             const checkPassword = await bcrypt.compare(req.body.password, userFound.password)
+            
             if (!checkPassword) {
                 res.status(401).json("Incorrect Password")
             }
             else {
-                res.status(200).json("Logged in")
+                document.location.replace('/story');
+                req.session = {
+                    isLoggedIn: true
+                }
+                res.status(200).json("Logged in") 
             }
         } else { 
             res.status(404).json("User not found")
