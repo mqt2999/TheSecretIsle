@@ -31,7 +31,6 @@ export function CharacterProvider({children}) {
     //TODO: finish the update Character method
     const updateCharacter = async (number) => {
         //const updatedChar = await fetch(`api/user/update/${questionNumber}`)
-        console.log(number)
         setCharacterContext({...characterContext, lastQuestion: number});
     } 
 

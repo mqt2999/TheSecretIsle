@@ -76,7 +76,7 @@ export function StoryProvider({ children }) {
         fetch(`api/story/${questionNumber}`)
         .then(res => res.json())
         .then(data => 
-            {console.log(data)
+            {
             setStoryContext(data[0])
         })
     }
@@ -90,7 +90,6 @@ export function StoryProvider({ children }) {
 
     //TODO: rework to fetch new questions from database
     const processChoice = (number) => {
-        console.log(number);
         updateCharacter(number);
         setStoryContext(getQuestion(number))
     }
