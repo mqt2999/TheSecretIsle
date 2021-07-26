@@ -18,7 +18,6 @@ function Story() {
           <StoryPic />
             <StoryProvider>
                 <CharacterProvider>
-                    <DebugConsole/>
                     <StoryPrompt />
                     <ChoiceBox />
                 </CharacterProvider>
