@@ -19,24 +19,24 @@ mongoose.connect(
   } 
 );
 
-const store = new MongoStore({
-    url: 'mongodb://localhost/secretIsleGame',
-    // databaseName:'secretIsleGame',
-    collection: 'mySessions'
-  });
+// const store = new MongoStore({
+//     MongoUrl: 'mongodb://localhost/secretIsleGame',
+//     // databaseName:'secretIsleGame',
+//     collection: 'mySessions'
+//   });
 
-  store.on('error', function(error) {
-      console.log(error);
-    });
+  // store.on('error', function(error) {
+  //     console.log(error);
+  //   });
     
 
-    app.use(session({
-      secret: 'secret',
-      cookie: {},
-      store: store,
-      resave: false,
-      saveUninitialized: true
-    }));
+  //   app.use(session({
+  //     secret: 'secret',
+  //     cookie: {},
+  //     store: store,
+  //     resave: false,
+  //     saveUninitialized: true
+  //   }));
 
   
 // const routes = require('./routes')
