@@ -35,7 +35,7 @@ function Quiz() {
           setTrivia(res.json)
           console.log("hehehuey", res.data.results)
         })
-      }
+    }
 
       return(
         <ContainerBig>
