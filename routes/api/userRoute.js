@@ -1,6 +1,6 @@
 const User = require("../../models/User");
-
 const router = require("express").Router();
+const bcrypt = require("bcrypt");
 
 router.post("/login", function (req,res){
     User.find({})
@@ -10,10 +10,25 @@ router.post("/login", function (req,res){
     .catch(err => res.status(404).json(err))
 })
 
-router.post("/signup", function (req,res){
-    User.create(req.body)
-    .then(user => res.json(user))
-    .catch(err => consle.error(err))
+router.post("/signup", (req, res) => {
+
+    try {
+        const hashedPassword = await bcrypt.hash(req.body.password, 10);
+
+        const createdUser = await User.create({
+            userName: req.body.username,
+            password: hashedPassword,
+        });
+
+        res.send(createdUser);
+
+        req.session = {
+          isLoggedIn: true,
+        }
+      } catch (error) {
+        console.log("Signup Route" + error);
+      }
 })
+
 
 module.exports = router;
