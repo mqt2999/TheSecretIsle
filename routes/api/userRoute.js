@@ -2,7 +2,17 @@ const User = require("../../models/User");
 const router = require("express").Router();
 const bcrypt = require("bcrypt");
 
-router.post("/login", function (req,res){
+router.post("/login", async (req,res) => {
+
+    try {
+        const userFound = await User.findOne({ userName: req.body.username})
+
+        if (!userFound) {
+            res.redirect('/login')
+        }
+    }
+
+
     User.find({})
     .then(data => {
             res.json(data)
@@ -10,7 +20,7 @@ router.post("/login", function (req,res){
     .catch(err => res.status(404).json(err))
 })
 
-router.post("/signup", (req, res) => {
+router.post("/signup", async (req, res) => {
 
     try {
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
@@ -30,5 +40,8 @@ router.post("/signup", (req, res) => {
       }
 })
 
+router.get('/', (req, res) => {
+    res.status(200).send(req.session.user_id)
+})
 
 module.exports = router;
