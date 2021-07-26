@@ -52,7 +52,7 @@ export default function Timer() {
     }, [timerStarted])
 
     return (
-        <div className="timer-backdrop">
+        <div>
             <button className="col-2 btn btn-primary" onClick={startTimerOnFirstClick}>Start</button>
             <div className="row timer">
                 {timerBlocks.components}
