@@ -15,14 +15,13 @@ const UserSchema = new Schema({
     },
     password:{
         type:String,
-        unique:true,
         allowNull:false
     },
     lastQuestion:{
         type:Number,
-        allowNull:true,
-        default: 1,
-        upsert:true
+        allowNull:false,
+        upsert:true,
+        default:1
     },
 
     Score:{

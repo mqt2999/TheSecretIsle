@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import "./style.css";
 
 export default function ButtonBox() {
     const [content, setContent] = useState();
@@ -6,9 +7,7 @@ export default function ButtonBox() {
     //small blocks to fill the timer with
 
     return (
-        <div style = {{backgroundcolor: "blue"}}>
-            Block
-            {content}
+        <div className = "timerblock col-1 p-1">
         </div>
     )
 }

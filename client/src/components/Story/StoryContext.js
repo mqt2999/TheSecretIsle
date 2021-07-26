@@ -1,4 +1,6 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
+import { useCharacter, useCharacterUpdater } from './CharacterContext';
+import axios from 'axios';
 
 const StoryContext = React.createContext();
 const StoryContextUpdater = React.createContext();
@@ -60,18 +62,36 @@ export function useStoryUpdater() {
 }
 
 export function StoryProvider({ children }) {
-    const [storyContext, setStoryContext] = useState(fakeQuestions[0]);
+
+    const character = useCharacter();
+    const updateCharacter = useCharacterUpdater();
+
+    const [storyContext, setStoryContext] = useState({
+        storyChunk: 'Failed to get Question',
+        answer1: '...Loading Answer',
+        answer2: '...Loading Answer'
+    });
+
+    const getQuestion = async (questionNumber) => {
+        fetch(`api/story/${questionNumber}`)
+        .then(res => res.json())
+        .then(data => 
+            {
+            setStoryContext(data[0])
+        })
+    }
+
+    useEffect( () => {
+        if(!character){
+            getQuestion(1);
+        } else {
+            getQuestion(character.lastQuestion);
+    }}, [])
 
     //TODO: rework to fetch new questions from database
-    const processChoice = (event) => {
-        console.log(event);
-        console.log(StoryContext);
-        const newCharScore = 10 + StoryContext.mod;
-        if (newCharScore > StoryContext.decider) {
-            setStoryContext(priorStory => fakeQuestions[priorStory.nextQuestionUp]);
-        } else {
-            setStoryContext(priorStory => fakeQuestions[priorStory.nextQuestionDown]);
-        }
+    const processChoice = (number) => {
+        updateCharacter(number);
+        setStoryContext(getQuestion(number))
     }
 
     return (
@@ -82,3 +102,4 @@ export function StoryProvider({ children }) {
         </StoryContext.Provider>
     )
 }
+
