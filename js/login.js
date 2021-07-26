@@ -5,14 +5,14 @@ const loginFormHandler = async (event) => {
     const password = document.querySelector('#password-login').value.trim();
   
     if (email && password) {
-      const response = await fetch("/api/user/login", { //ADD API ROUTE HERE
+      const response = await fetch("api/user/login", { //ADD API ROUTE HERE
         method: 'POST',
-        body: JSON.stringify({ email, password }),
+        body: { email, password },
         headers: { 'Content-Type': 'application/json' },
       });
   
       if (response.ok) {
-        document.location.replace('/dashboard');
+        document.location.replace('/Home');
       } else {
         alert('Invalid password or Email');
       }

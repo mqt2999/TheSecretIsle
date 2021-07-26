@@ -28,7 +28,7 @@ mongoose.connect(
 );
 
 app.use(session({
-  secret: 'my-secret',
+  secret: 'Isle',
   resave: false,
   saveUninitialized: true,
   store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI || "mongodb://localhost/secretIsleGame" })

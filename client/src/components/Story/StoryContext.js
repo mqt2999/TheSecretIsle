@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { useCharacter } from './CharacterContext';
+import { useCharacter, useCharacterUpdater } from './CharacterContext';
 import axios from 'axios';
 
 const StoryContext = React.createContext();
@@ -64,6 +64,7 @@ export function useStoryUpdater() {
 export function StoryProvider({ children }) {
 
     const character = useCharacter();
+    const updateCharacter = useCharacterUpdater();
 
     const [storyContext, setStoryContext] = useState({
         storyChunk: 'Failed to get Question',
@@ -71,41 +72,27 @@ export function StoryProvider({ children }) {
         answer2: '...Loading Answer'
     });
 
-    // const [storyContext, setStoryContext] = useState(async () => {
-    //     try {
-    //         const storyData = await fetch('api/story/1');
-    //         console.log(storyData.json);
-    //         return storyData;
-    //         console.log(storyContext);
-    //     } catch {
-    //         return ({
-    //             storyChunk: 'Failed to get Question',
-    //             answer1: '...Loading Answer',
-    //             answer2: '...Loading Answer'
-    //         })
-    //     }
-    // });
-
-    useEffect( () => {
-        fetch(`api/story/1`)
+    const getQuestion = async (questionNumber) => {
+        fetch(`api/story/${questionNumber}`)
         .then(res => res.json())
         .then(data => 
             {console.log(data)
             setStoryContext(data[0])
-            })
-    }, [])
+        })
+    }
+
+    useEffect( () => {
+        if(!character){
+            getQuestion(1);
+        } else {
+            getQuestion(character.lastQuestion);
+    }}, [])
 
     //TODO: rework to fetch new questions from database
-    const processChoice = (event) => {
-        axios.post('api/user')
-        console.log(event);
-        console.log(StoryContext);
-        const newCharScore = 10 + StoryContext.mod;
-        if (newCharScore > StoryContext.decider) {
-            setStoryContext(priorStory => fakeQuestions[priorStory.nextQuestionUp]);
-        } else {
-            setStoryContext(priorStory => fakeQuestions[priorStory.nextQuestionDown]);
-        }
+    const processChoice = (number) => {
+        console.log(number);
+        updateCharacter(number);
+        setStoryContext(getQuestion(number))
     }
 
     return (
