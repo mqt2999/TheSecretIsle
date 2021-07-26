@@ -2,41 +2,51 @@ const User = require("../../models/User");
 const router = require("express").Router();
 const bcrypt = require("bcrypt");
 
-// router.post("/login", function (req,res){
-//     User.find({})
-//     .then(data => {
-//             res.json(data)
-//             console.log(data)})
-//     .catch(err => res.status(404).json(err))
-// })
 
 router.post("/login", async (req, res) => {
+
     try {
-        const user = await User.find({ "userName": req.body.email })
-        if (user) {
-            let firstUser = user[0];
-            //very basic password check no hashing
-            if (req.body.password == firstUser.password) {
-                    // req.session.username = firstUser.userName;
-                    // req.session.logged_in = true;   
-                res.status(200).json("Logged in")
-            } else {
-                res.status(401).json("Incorrect User or Password");
+        const userFound = await User.findOne({ "userName": req.body.username})
+       
+
+        if (userFound) {
+            const checkPassword = await bcrypt.compare(req.body.password, userFound.password)
+            if (!checkPassword) {
+                res.status(401).json("Incorrect Password")
             }
-        } else {
-            res.status(404).json("User not found");
+            else {
+                res.status(200).json("Logged in")
+            }
+        } else { 
+            res.status(404).json("User not found")
         }
-    } catch (err) {
-        res.status(500).json(err);
+        
+    } catch(error) {
+        console.log("login route" + error)
     }
+})
 
-});
 
-// router.put("/signup", function (req,res){
-//     User.create(req.body)
-//     .then(user => res.json(user))
-//     .catch(err => consle.error(err))
-// })
+//     try {
+//         const user = await User.find({ "userName": req.body.email })
+//         if (user) {
+//             let firstUser = user[0];
+//             //very basic password check no hashing
+//             if (req.body.password == firstUser.password) {
+//                     // req.session.username = firstUser.userName;
+//                     // req.session.logged_in = true;   
+//                 res.status(200).json("Logged in")
+//             } else {
+//                 res.status(401).json("Incorrect User or Password");
+//             }
+//         } else {
+//             res.status(404).json("User not found");
+//         }
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+
+// });
 
 router.post("/update/:id", async (req, res) => {
         try {
@@ -77,6 +87,7 @@ router.post('/logout', (req, res) => {
       res.status(404).end();
     }
   });
+
 router.post("/signup", (req, res) => {
 
     try {
@@ -97,5 +108,12 @@ router.post("/signup", (req, res) => {
       }
 })
 
+router.get('/', (req, res) => {
+    res.status(200).send(req.session.user_id)
+});
 
 module.exports = router;
+
+
+
+
