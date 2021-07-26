@@ -13,17 +13,16 @@ export default function Timer() {
         for (let i = 0; i < blockCount; i++) {
             blockArray.push(<TimerBlock key={i} />);
         }
-        console.log(blockArray);
         return blockArray;
     }
 
     const reduceTimerBlocks = (state, action) => {
-        console.log("inside reduceTimer")
+
         if (state.number >= 0) {
-            console.log("inside reduceTimer true")
+            
             return ({ components: renderTimerBlocks(state.number - 1), number: state.number - 1 });
         } else {
-            console.log("inside reduceTimer else")
+            
             return state;
         }
     }
@@ -33,23 +32,23 @@ export default function Timer() {
     const startTimerOnFirstClick = () => {
         if (!timerStarted) {
             setTimerStarted(true);
-            console.log("timer set to true");
+            
         }
     }
 
     useEffect(() => {
-        console.log(`starting? ${timerStarted}:: ${timerBlocks.number}`);
+        
         if (timerStarted && timerBlocks.number > 0) {
-            console.log("getting here");
+            
             const timer = setInterval(() => {
                 dispatch();
             }, 3000);
-            console.log("skipping timeout");
+            
             return () => {
                 clearInterval(timer)
             };
         }
-        console.log("are you rendering?");
+        
 
     }, [timerStarted])
 

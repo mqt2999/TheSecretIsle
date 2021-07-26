@@ -2,41 +2,54 @@ import React ,{useEffect, useState} from "react";
 import Container from "../components/Container";
 import axios from "axios"
 import '../components/LoginForm/style.css'
-function Login() {
 
-  const [users, setUsers] = useState({});
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const handleSubmit = (e) => {
+      e.preventDefault();
+      alert("Logging in...")
   
-useEffect ( () => {
-  axios.post(`/api/user/login`)
+  axios.post(`/api/user/login`, {userName: email, password: password})
   .then(res => {
-    console.log(res.data)
+    console.log(res)
   })
   .catch(err => console.error(err))
-  })
+}
 
   
-    return(
+    return (
       <Container>
-          <form className="login-form">
+          <form onSubmit = {handleSubmit} className="login-form">
               <div className="mb-4">
                   <div className="">
-                      <input type="text" className="input-field" id="email-input" placeholder="Username"/>
+                      <input type="text" 
+                      className="input-field" 
+                      id="email-input" 
+                      onChange = {e => setEmail(e.target.value)}
+                      placeholder="Username"/>
                   </div>
               </div>
               <div className="mb-4">
                   <div className="">
-                      <input type="password" className="input-field" id="password-input" placeholder="Password"/>
+                      <input type="password" 
+                      className="input-field" 
+                      id="password-input" 
+                      onChange = {e => setPassword(e.target.value)}
+                      placeholder="Password"/>
                   </div>
               </div>
               <div className="d-grid gap-2">
                   <button type="submit" id="login-btn" className="btn btn-light">Login</button>
               </div>
-              <p id="login-text" className="mt-4 text-center" >Don't have an account?<a type="button" href="/signUp" className="p-1 signup">Sign up</a></p>
+              <p id="login-text" 
+              className="mt-4 text-center" >Don't have an account?<a type="button" href="/signUp" className="p-1 signup">Sign up</a></p>
           </form>
       </Container>
   )
+
 }
+
 
 export default Login
