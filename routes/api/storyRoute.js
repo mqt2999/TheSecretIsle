@@ -12,4 +12,17 @@ router.get('/', function (req,res){
     })
 });
 
+router.get('/:id', async (req, res) => {
+    try {
+    const promptData = await Prompt.find({promptNum: req.params.id});
+    if(promptData) {
+        res.json(promptData);
+    }
+    } catch (err) {
+        res.status(500).json(err);
+    }
+
+
+})
+
 module.exports = router;
