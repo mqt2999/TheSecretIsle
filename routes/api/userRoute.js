@@ -20,6 +20,7 @@ router.post("/login", async (req, res) => {
                 req.session = {
                     isLoggedIn: true
                 }
+
                 res.status(200).json("Logged in") 
             }
         } else { 
@@ -93,7 +94,7 @@ router.post('/logout', (req, res) => {
     }
   });
 
-router.post("/signup", (req, res) => {
+router.post("/signup", async (req, res) => {
 
     try {
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
