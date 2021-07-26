@@ -1,10 +1,14 @@
 import React ,{useEffect, useState} from "react";
-import Main from "../components/Main/Main";
-import Container from "../components/Container";
-import Row from "../components/Row";
-import Col from "../components/Col";
 import axios from "axios"
-import Story from '../components/Story';
+import ContainerBig from '../components/ContainerBig/ContainerBig'
+import Navbar from "../components/Navbar";
+import StoryPrompt from '../components/StoryPrompt'
+import Trivia from "../components/Trivia/Trivia";
+import ChoiceBoxQuiz from "../components/ChoiceBoxQuiz/ChoiceBoxQuiz";
+import { StoryProvider } from "../components/Story/StoryContext";
+import { CharacterProvider } from "../components/Story/CharacterContext";
+
+
 
 function Quiz() {
     const [questions, setQuestions]= useState({})
@@ -34,9 +38,16 @@ function Quiz() {
       }
 
       return(
-          <div> 
-              <Story/>
-          </div>
+        <ContainerBig>
+            <Navbar />
+            <StoryProvider>
+                <CharacterProvider>
+                    <StoryPrompt />
+                    <Trivia />
+                    <ChoiceBoxQuiz />
+                </CharacterProvider>
+            </StoryProvider>
+        </ContainerBig>
       )
 
 }
