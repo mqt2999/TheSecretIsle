@@ -1,30 +1,64 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef, useReducer } from 'react';
 import TimerBlock from '../TimerBlock';
-import styles from './componentStyle/component.module.css'
-
-
+import "./style.css";
 
 export default function Timer() {
-    const [content, setContent] = useState();
-    let timeRemaining = 30;
-    const numberOfBlocks = 10;
+    const numberOfBlocks = 12;
 
-    //calculate how many blocks to display and calculate height flex-box vertical
+    const [timerStarted, setTimerStarted] = useState(false);
 
+    const renderTimerBlocks = (blockCount) => {
+        let blockArray = [];
+        for (let i = 0; i < blockCount; i++) {
+            blockArray.push(<TimerBlock key={i} />);
+        }
+        return blockArray;
+    }
+
+    const reduceTimerBlocks = (state, action) => {
+
+        if (state.number >= 0) {
+            
+            return ({ components: renderTimerBlocks(state.number - 1), number: state.number - 1 });
+        } else {
+            
+            return state;
+        }
+    }
+
+    const [timerBlocks, dispatch] = useReducer(reduceTimerBlocks, { number: numberOfBlocks, components: renderTimerBlocks(numberOfBlocks) });
+
+    const startTimerOnFirstClick = () => {
+        if (!timerStarted) {
+            setTimerStarted(true);
+            
+        }
+    }
+
+    useEffect(() => {
+        
+        if (timerStarted && timerBlocks.number > 0) {
+            
+            const timer = setInterval(() => {
+                dispatch();
+            }, 3000);
+            
+            return () => {
+                clearInterval(timer)
+            };
+        }
+        
+
+    }, [timerStarted])
 
     return (
-        <div className={styles.timer}>
-            {content}
+        <div>
+            <button className="col-2 btn btn-primary" onClick={startTimerOnFirstClick}>Start</button>
+            <div className="row timer">
+                {timerBlocks.components}
+            </div>
         </div>
+
     )
 }
 
-const renderTimerBlocks = (totalTime, blockCount) => {
-    //calculate sytle for blocks (width, etc.) to add to each block
-    let blockArray = [];
-    for (let i = 0; i < blockCount; i++) {
-        blockArray.push(<TimerBlock/>);
-    }
-    //setContent(blockArray);
-    return blockArray;
-}

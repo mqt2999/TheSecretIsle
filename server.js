@@ -1,6 +1,6 @@
 const express = require("express");
-
 const mongoose = require("mongoose");
+const { db } = require("./models/User.js");
 const app = express();
 const PORT = process.env.PORT || 3001;
 const routes = require("./routes/index.js")
@@ -19,24 +19,24 @@ mongoose.connect(
   } 
 );
 
-const store = new MongoStore({
-    url: 'mongodb://localhost/secretIsleGame',
-    // databaseName:'secretIsleGame',
-    collection: 'mySessions'
-  });
+// const store = new MongoStore({
+//     MongoUrl: 'mongodb://localhost/secretIsleGame',
+//     // databaseName:'secretIsleGame',
+//     collection: 'mySessions'
+//   });
 
-  store.on('error', function(error) {
-      console.log(error);
-    });
+  // store.on('error', function(error) {
+  //     console.log(error);
+  //   });
     
 
-    app.use(session({
-      secret: 'secret',
-      cookie: {},
-      store: store,
-      resave: false,
-      saveUninitialized: true
-    }));
+  //   app.use(session({
+  //     secret: 'secret',
+  //     cookie: {},
+  //     store: store,
+  //     resave: false,
+  //     saveUninitialized: true
+  //   }));
 
   
 // const routes = require('./routes')
@@ -49,7 +49,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Add routes, both API and view
 app.use(routes);
-
 
 
 // Start the API server
