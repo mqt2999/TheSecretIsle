@@ -6,6 +6,7 @@ import StoryPrompt from '../components/StoryPrompt'
 import Minigame from '../components/Minigame/Minigame'
 import { StoryProvider } from "../components/Story/StoryContext";
 import { CharacterProvider } from "../components/Story/CharacterContext";
+import Timer from "../components/Timer"
 
 
 
@@ -19,6 +20,7 @@ function Story() {
                     <Minigame>
                         ADD THE MINIGAME HERE
                     </Minigame>
+                    <Timer />
                 </CharacterProvider>
             </StoryProvider>
       </ContainerBig>
