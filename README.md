@@ -55,13 +55,13 @@ Screenshots of the application and deployed application below
 
 <img src='../../images/SI_Screenshot-4.png' alt='Secret Isle Sceenhot Four'>
 
-<img src='../../images/SI_Screenshot-1.pngg' alt='Secret Isle Sceenhot One'>
+<img src='../../images/SI_Screenshot-1.png' alt='Secret Isle Sceenhot One'>
 
 <img src='../../images/SI_Screenshot-2.png' alt='Secret Isle Sceenhot Two'>
 
-<img src='../../images/SI_Screenshot-5.png' alt='Secret Isle Sceenhot Five'>
+<img src='./../../images/SI_Screenshot-5.png' alt='Secret Isle Sceenhot Five'>
 
-<img src='../../images/SI_Screenshot-3.png' alt='Secret Isle Sceenhot Three'>
+<img src='../../../images/SI_Screenshot-3.png' alt='Secret Isle Sceenhot Three'>
 
 <a href="https://sleepy-lowlands-61315.herokuapp.com/">Checkout the deployed application here</a>
 
