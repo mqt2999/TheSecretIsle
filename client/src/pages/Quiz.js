@@ -7,6 +7,7 @@ import Trivia from "../components/Trivia/Trivia";
 import ChoiceBoxQuiz from "../components/ChoiceBoxQuiz/ChoiceBoxQuiz";
 import { StoryProvider } from "../components/Story/StoryContext";
 import { CharacterProvider } from "../components/Story/CharacterContext";
+import { TriviaProvider } from "../components/QuizContext/QuizContext"
 
 
 
@@ -14,31 +15,21 @@ function Quiz() {
     const [questions, setQuestions]= useState({})
     const [riddle, setRiddle] = useState({})
     const [miniGame, setMiniGame] = useState({}) 
-    const [trivia, setTrivia] = useState()
+  
 
-    useEffect( () => {
-        getQuizQuestions()
-        getTrivia()
-        
-    },[])
+    // useEffect( () => {
+    //     getQuizQuestions()
+    // },[])
 
-    function getQuizQuestions() {
-        axios.get("/api/story/")
-            .then(res => {
+    // function getQuizQuestions() {
+    //     axios.get("/api/story/")
+    //         .then(res => {
                 
-                setQuestions(res.data)
-              })
+    //             setQuestions(res.data)
+    //           })
         
-    }
 
-    function getTrivia(){
-        axios.get("https://opentdb.com/api.php?amount=10&category=22&difficulty=medium&type=boolean")
-        .then(res => {
-            console.log("hehehuey", res.data.results)
-          return (res.data.results[0])
-          
-        })
-    }
+    // }
 
       return(
         <ContainerBig>
@@ -46,8 +37,10 @@ function Quiz() {
             <StoryProvider>
                 <CharacterProvider>
                     <StoryPrompt />
-                    <Trivia a={trivia}/>
+                    <TriviaProvider>
+                    <Trivia/>
                     <ChoiceBoxQuiz />
+                    </TriviaProvider>
                 </CharacterProvider>
             </StoryProvider>
         </ContainerBig>
