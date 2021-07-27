@@ -53,7 +53,7 @@ As a user, you will be able to login, sign and play The Secret Isle game. The ga
 
 Screenshots of the application and deployed application below
 
-<img src='../../images/SI_Screenshot-4.png' alt='Secret Isle Sceenshot Four'>
+<img src='./client/src/images/SI_Screenshot-4.png' alt='Secret Isle Sceenshot Four'>
 ![Secret Isle Screenshot One](https://github.com/mqt2999/TheSecretIsle/blob/main/client/src/images/SI_Screenshot-1.png)
 
 <img src='../../images/SI_Screenshot-1.png' alt='Secret Isle Sceenshot One'>
