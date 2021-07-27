@@ -14,21 +14,23 @@ function Quiz() {
     const [questions, setQuestions]= useState({})
     const [riddle, setRiddle] = useState({})
     const [miniGame, setMiniGame] = useState({}) 
-    const [trivia, setTrivia] = useState(getTrivia())
+    const [trivia, setTrivia] = useState()
 
     useEffect( () => {
-        //getQuizQuestions()
+        getQuizQuestions()
+        getTrivia()
         
     },[])
 
-    // function getQuizQuestions() {
-    //     axios.get("/api/story/")
-    //         .then(res => {
+    function getQuizQuestions() {
+        axios.get("/api/story/")
+            .then(res => {
                 
-    //             setQuestions(res.data)
-    //           })
+                setQuestions(res.data)
+              })
         
-    // }
+    }
+
     function getTrivia(){
         axios.get("https://opentdb.com/api.php?amount=10&category=22&difficulty=medium&type=boolean")
         .then(res => {
