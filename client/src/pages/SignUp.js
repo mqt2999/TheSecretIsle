@@ -5,14 +5,18 @@ import '../components/SignupForm/style.css'
 import Row from "../components/Row";
 import Col from "../components/Col";
 import Main from "../components/Main/Main";
+import { useHistory } from "react-router-dom"; 
+
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     alert("Signing up...");
+    history.push('/loading')
 
     // useEffect(() => {
       axios.post('api/user/signup', {userName: email, password: password})

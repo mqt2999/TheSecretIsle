@@ -1,13 +1,16 @@
 const User = require("../../models/User");
 const router = require("express").Router();
 const bcrypt = require("bcrypt");
+// import React from "react";
 
 
 router.post("/login", async (req, res) => {
+    console.log(req.body) //see what's getting passed in
 
     try {
-        const userFound = await User.findOne({userName: req.body.username})
-       
+        const userFound = await User.findOne({userName: req.body.userName})
+        console.log("user found:")
+       console.log(userFound)
 
         if (userFound) {
             const checkPassword = await bcrypt.compare(req.body.password, userFound.password)
@@ -16,10 +19,11 @@ router.post("/login", async (req, res) => {
                 res.status(401).json("Incorrect Password")
             }
             else {
-                document.location.replace('/story');
-                req.session = {
-                    isLoggedIn: true
-                }
+
+                // req.session = {
+                //     isLoggedIn: true
+                // } //possible error if no session, or creation. 
+                 // 200, set isLoggedIn: true -- "save" method
 
                 res.status(200).json("Logged in") 
             }
@@ -32,27 +36,6 @@ router.post("/login", async (req, res) => {
     }
 })
 
-
-//     try {
-//         const user = await User.find({ "userName": req.body.email })
-//         if (user) {
-//             let firstUser = user[0];
-//             //very basic password check no hashing
-//             if (req.body.password == firstUser.password) {
-//                     // req.session.username = firstUser.userName;
-//                     // req.session.logged_in = true;   
-//                 res.status(200).json("Logged in")
-//             } else {
-//                 res.status(401).json("Incorrect User or Password");
-//             }
-//         } else {
-//             res.status(404).json("User not found");
-//         }
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-
-// });
 
 router.post("/update/:id", async (req, res) => {
         try {
@@ -100,15 +83,15 @@ router.post("/signup", async (req, res) => {
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
         const createdUser = await User.create({
-            userName: req.body.username,
+            userName: req.body.userName,
             password: hashedPassword,
         });
 
-        res.send(createdUser);
+        res.send(createdUser); //similar to return
 
-        req.session = {
-          isLoggedIn: true,
-        }
+        // req.session = {
+        //   isLoggedIn: true,
+        // }
       } catch (error) {
         console.log("Signup Route" + error);
       }
