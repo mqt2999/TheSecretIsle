@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef, useReducer } from 'react';
 import TimerBlock from '../TimerBlock';
 import "./style.css";
 
-export default function Timer() {
+export default function Timer(props) {
     const numberOfBlocks = 12;
 
     const [timerStarted, setTimerStarted] = useState(false);
@@ -51,10 +51,13 @@ export default function Timer() {
 
     }, [timerStarted])
 
+    if (props.startTimer) {
+        startTimerOnFirstClick()
+    }
+
     return (
         <div>
-            <button className="col-2 btn btn-primary" onClick={startTimerOnFirstClick}>Start</button>
-            <div className="row timer">
+            <div className="row timer mt-4">
                 {timerBlocks.components}
             </div>
         </div>

@@ -8,6 +8,7 @@ import ChoiceBoxQuiz from "../components/ChoiceBoxQuiz/ChoiceBoxQuiz";
 import { StoryProvider } from "../components/Story/StoryContext";
 import { CharacterProvider } from "../components/Story/CharacterContext";
 import { TriviaProvider } from "../components/QuizContext/QuizContext"
+import Timer from "../components/Timer/index"
 
 
 
@@ -39,6 +40,7 @@ function Quiz() {
                     <StoryPrompt />
                     <TriviaProvider>
                     <Trivia/>
+                    <Timer startTimer={1}/>
                     <ChoiceBoxQuiz />
                     </TriviaProvider>
                 </CharacterProvider>

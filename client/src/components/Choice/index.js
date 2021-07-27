@@ -17,7 +17,7 @@ export default function Choice(props) {
 
 
     return (
-        <div className="d-grid gap-2 col mx-auto">
+        <div className="d-grid gap-2 col mx-auto mt-4">
             <button className="btn btn-light" onClick={functionCalls}>
                 {props.children}
             </button>

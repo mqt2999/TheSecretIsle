@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ContainerBig from '../components/ContainerBig/ContainerBig'
 import Navbar from "../components/Navbar";
 import { StoryProvider } from '../components/Story/StoryContext';
@@ -6,8 +6,7 @@ import { CharacterProvider } from '../components/Story/CharacterContext';
 import StoryPrompt from '../components/StoryPrompt';
 import ChoiceBox from '../components/ChoiceBox';
 import StoryPic from '../components/StoryPic/StoryPic'
-
-
+import Timer from "../components/Timer/index"
 
 
 function Story() {
@@ -18,6 +17,7 @@ function Story() {
             <CharacterProvider>
                 <StoryProvider>
                     <StoryPrompt />
+                    <Timer startTimer={1}/>
                     <ChoiceBox />
                 </StoryProvider>
             </CharacterProvider>

@@ -6,7 +6,7 @@ export default function StoryPrompt() {
     const story = useStory();
 
     return (
-        <div>
+        <div className="prompt">
             {story.storyChunk}
         </div>
     )

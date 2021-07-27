@@ -4,7 +4,7 @@ import Choice from '../Choice';
 export default function ChoiceBox() {
     return (
         <div>
-            <div className="row mt-3">
+            <div className="row">
                 <Choice>True</Choice>
                 <Choice>False</Choice>
             </div>
