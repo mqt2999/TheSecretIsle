@@ -61,7 +61,7 @@ Screenshots of the application and deployed application below
 
 <img src='./client/src/images/SI_Screenshot-3.png' alt='Secret Isle Sceenshot Three'>
 
-<a href="https://sleepy-lowlands-61315.herokuapp.com/">Checkout the deployed application here</a>
+<a href="https://secret-isle-14514.herokuapp.com/">Checkout the deployed application here</a>
 
 ## Future Development Outline
 The goal of this application is to be turned into an Organizational Management Tool. 
