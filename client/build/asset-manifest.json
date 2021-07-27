@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.9056f2d9.chunk.css",
+    "main.js": "/static/js/main.fe2fee06.chunk.js",
+    "main.js.map": "/static/js/main.fe2fee06.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.3cfc6c57.js",
+    "runtime-main.js.map": "/static/js/runtime-main.3cfc6c57.js.map",
+    "static/css/2.4be38407.chunk.css": "/static/css/2.4be38407.chunk.css",
+    "static/js/2.25c99328.chunk.js": "/static/js/2.25c99328.chunk.js",
+    "static/js/2.25c99328.chunk.js.map": "/static/js/2.25c99328.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.4be38407.chunk.css.map": "/static/css/2.4be38407.chunk.css.map",
+    "static/css/main.9056f2d9.chunk.css.map": "/static/css/main.9056f2d9.chunk.css.map",
+    "static/js/2.25c99328.chunk.js.LICENSE.txt": "/static/js/2.25c99328.chunk.js.LICENSE.txt",
+    "static/media/Code_Boat_1.99f0bb46.png": "/static/media/Code_Boat_1.99f0bb46.png",
+    "static/media/style.css": "/static/media/Pirate Island.68530ca7.jpg",
+    "static/media/prompt-1.090f8647.jpg": "/static/media/prompt-1.090f8647.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3cfc6c57.js",
+    "static/css/2.4be38407.chunk.css",
+    "static/js/2.25c99328.chunk.js",
+    "static/css/main.9056f2d9.chunk.css",
+    "static/js/main.fe2fee06.chunk.js"
+  ]
+}

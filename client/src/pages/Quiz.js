@@ -28,7 +28,9 @@ function Quiz() {
     //             setQuestions(res.data)
     //           })
         
+
     // }
+
       return(
         <ContainerBig>
             <Navbar />
