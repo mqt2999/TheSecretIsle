@@ -2,20 +2,31 @@ import React ,{useEffect, useState} from "react";
 import Container from "../components/Container";
 import axios from "axios"
 import '../components/LoginForm/style.css'
+import { useHistory } from "react-router-dom"; 
+
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const history = useHistory();
+
 
   const handleSubmit = (e) => {
       e.preventDefault();
       alert("Logging in...")
+      history.push('/loading')
   
   axios.post(`/api/user/login`, {userName: email, password: password})
   .then(res => {
     console.log(res)
+    if (res.ok) {
+        
+        // window.document.replace('/loading');
+    }
   })
   .catch(err => console.error(err))
+  
 }
 
   
