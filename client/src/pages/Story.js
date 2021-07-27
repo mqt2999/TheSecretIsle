@@ -1,5 +1,4 @@
 import React from "react";
-import Container from "../components/Container";
 import ContainerBig from '../components/ContainerBig/ContainerBig'
 import Navbar from "../components/Navbar";
 import { StoryProvider } from '../components/Story/StoryContext';
@@ -7,6 +6,7 @@ import { CharacterProvider } from '../components/Story/CharacterContext';
 import StoryPrompt from '../components/StoryPrompt';
 import ChoiceBox from '../components/ChoiceBox';
 import StoryPic from '../components/StoryPic/StoryPic'
+
 
 
 
@@ -21,7 +21,8 @@ function Story() {
                     <ChoiceBox />
                 </StoryProvider>
             </CharacterProvider>
-        </ContainerBig>
+            <a className="btn" href="/quiz">try quiz</a>
+        </ContainerBig>   
     )
 }
 
