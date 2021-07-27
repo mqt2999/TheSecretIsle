@@ -1,6 +1,4 @@
-# TheSecretIsle
-
-# Topic 
+# TheSecretIsle 
 This application is an intuitive game that allows the user to progress through a story and make a decision based on the current situation at hand. As the user progresses through the game and makes decisions, the outcome is altered as metrics behind the scenes are being tracked based on the user's choices.
 
 The current version of the application is a conceptual template for an organizational management tool.
