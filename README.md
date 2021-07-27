@@ -53,15 +53,15 @@ As a user, you will be able to login, sign and play The Secret Isle game. The ga
 
 Screenshots of the application and deployed application below
 
-<img src='./../images/SI_Screenshot-4.png' alt='Secret Isle Sceenhot Four'>
+<img src='../../images/SI_Screenshot-4.png' alt='Secret Isle Sceenshot Four'>
 
-<img src='../../images/SI_Screenshot-1.png' alt='Secret Isle Sceenhot One'>
+<img src='../../images/SI_Screenshot-1.png' alt='Secret Isle Sceenshot One'>
 
-<img src='./../images/SI_Screenshot-2.png' alt='Secret Isle Sceenhot Two'>
+<img src='../../images/SI_Screenshot-2.png' alt='Secret Isle Sceenshot Two'>
 
-<img src='./../images/SI_Screenshot-5.png' alt='Secret Isle Sceenhot Five'>
+<img src='../../images/SI_Screenshot-5.png' alt='Secret Isle Sceenshot Five'>
 
-<img src='./../images/SI_Screenshot-3.png' alt='Secret Isle Sceenhot Three'>
+<img src='../../images/SI_Screenshot-3.png' alt='Secret Isle Sceenshot Three'>
 
 <a href="https://sleepy-lowlands-61315.herokuapp.com/">Checkout the deployed application here</a>
 
