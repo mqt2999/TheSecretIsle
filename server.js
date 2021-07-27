@@ -1,12 +1,13 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const { db } = require("./models/User.js");
-const app = express();
 const PORT = process.env.PORT || 3001;
 const routes = require("./routes/index.js")
 const path = require('path')
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
+
+const app = express();
 
 //Connect to the Mongo DB
 mongoose.connect(
