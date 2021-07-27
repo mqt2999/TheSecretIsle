@@ -19,20 +19,20 @@ function Quiz() {
     useEffect( () => {
         getQuizQuestions()
         getTrivia()
-    })
+    },[])
 
     function getQuizQuestions() {
         axios.get("/api/story/")
             .then(res => {
                 
-                console.log(res.data)
+                setQuestions(res.data)
               })
         
     }
     function getTrivia(){
         axios.get("https://opentdb.com/api.php?amount=10&category=22&difficulty=medium&type=boolean")
         .then(res => {
-          setTrivia(res.json)
+          setTrivia(res.data.results)
           console.log("hehehuey", res.data.results)
         })
     }
@@ -43,7 +43,7 @@ function Quiz() {
             <StoryProvider>
                 <CharacterProvider>
                     <StoryPrompt />
-                    <Trivia />
+                    <Trivia a={trivia}/>
                     <ChoiceBoxQuiz />
                 </CharacterProvider>
             </StoryProvider>
